@@ -1,2 +1,3 @@
 # .gitignore has been included to ignore specific files
 *.pdf
+*DS_Store
