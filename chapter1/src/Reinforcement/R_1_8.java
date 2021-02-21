@@ -36,7 +36,7 @@ public class R_1_8 {
         return count;
     }
 
-    // // Logic 2
+    // Logic 2
     private static int numVowels2(String text)
     {
         // Explanation:
