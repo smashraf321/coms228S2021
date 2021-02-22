@@ -3,12 +3,12 @@ package Reinforcement;
 public class R_1_9 {
 
     // Constant string to hold potential punctuations.
-    private static final String punctuations = "!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+    private static final String punctuations = "!\"#$%&'’()*+,-./:;<=>?@[]^_`{|}~";
 
     public static void main(String[] args)
     {
         StringBuilder textToBeModified = new StringBuilder();
-        textToBeModified.append("He!!**");
+        textToBeModified.append("Let’s try, Mike!");
 
         System.out.println("Input string is:");
         System.out.println(textToBeModified.toString());
@@ -19,7 +19,6 @@ public class R_1_9 {
         System.out.println(textToBeModified.toString());
     }
 
-    // Logic 1
     private static void punctuationRemover(StringBuilder inputString)
     {
         // Explanation:
@@ -30,7 +29,14 @@ public class R_1_9 {
         //    string "punctuations".
         //
         // 3. For every character in the input string, we compare it against all the
-        //    characters in the
+        //    characters in the punctuations string. If we find a match, we delete the
+        //    character from the input string and stop comparing against other punctuations.
+        //
+        // 4. Now removing the character causes the input string to decrease in size.
+        //    Also, the character that was previously at index [i+1] which could also very
+        //    well be another punctuation will now be at index [i]. We therefore do not
+        //    want to advance our index counter to [i+1] as we still need to verify the
+        //    character at [i].
 
         for(int i = 0; i < inputString.length(); i++)
         {
@@ -46,7 +52,7 @@ public class R_1_9 {
         }
     }
 
-    // Logic 2 - inaccurate
+    // Alternate Logic - inaccurate
     //
     //    for(int i = 0; i < inputString.length(); i++)
     //    {
@@ -59,4 +65,13 @@ public class R_1_9 {
     //        }
     //        i--;
     //    }
+    //
+    // Explanation:
+    //
+    // 1. We should only decrement the index counter when we encounter a punctuation character
+    //    resulting in character deletion.
+    //
+    // 2. Otherwise, we keep checking the same valid character over and over again
+    //    when a character does not match a punctuation due to immediate index increment
+    //    and decrement.
 }
