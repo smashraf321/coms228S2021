@@ -25,7 +25,7 @@ public abstract class AbstractSorter
 	
 	protected String algorithm = null; // "selection sort", "insertion sort", "mergesort", or
 	                                   // "quicksort". Initialized by a subclass constructor.
-	// QUE I believe we need a getter for algorithm.
+	// QUE What's the use of String algorithm?
 		 
 	protected Comparator<Point> pointComparator = null;  
 	
@@ -56,13 +56,13 @@ public abstract class AbstractSorter
 		}
 
 		// QUE Is copying a reference good enough or should we perform a deep copy??
-//		this.points = pts;
+		this.points = pts;// for testing
 
-		this.points = new Point[pts.length];
-		for(int i = 0; i < pts.length; i++)
-		{
-			this.points[i] = pts[i];
-		}
+//		this.points = new Point[pts.length];
+//		for(int i = 0; i < pts.length; i++)
+//		{
+//			this.points[i] = pts[i];
+//		}
 
 	}
 	
@@ -91,6 +91,18 @@ public abstract class AbstractSorter
 		{
 			throw new IllegalArgumentException();
 		}
+
+
+        // this works as well
+//        if(order == 0)
+//        {
+//            Point.setXorY(true);
+//            // QUE we could even do Point.xORy = true; Why this method then?
+//        }
+//        else
+//        {
+//            Point.setXorY(false);
+//        }
 
 		// QUE Why have a comparator, can't we directly use p1.compareTo(p2) in sort()???
 		pointComparator = new Comparator<Point>() {

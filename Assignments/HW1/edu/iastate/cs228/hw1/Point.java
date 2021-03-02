@@ -81,7 +81,7 @@ public class Point implements Comparable<Point>
 		int ret;
 
 		if ((xORy && (this.x < q.x || (this.x == q.x && this.y < q.y)))
-			|| (!xORy && (this.y < q.y || (this.y == q.y && this.x < q.x))))
+		|| (!xORy && (this.y < q.y || (this.y == q.y && this.x < q.x))))
 		{
 			ret = -1;
 		}

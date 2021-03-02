@@ -32,7 +32,7 @@ public class SelectionSorter extends AbstractSorter
 		// TODO - WIP
 
 		super(pts);
-		super.algorithm = "selection sort";
+		super.algorithm = "SelectionSort";
 	}	
 
 	

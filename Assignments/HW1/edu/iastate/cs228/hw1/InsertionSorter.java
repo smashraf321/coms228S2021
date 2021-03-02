@@ -32,7 +32,7 @@ public class InsertionSorter extends AbstractSorter
 		// TODO - WIP
 
 		super(pts);
-		super.algorithm = "insertion sort";
+		super.algorithm = "InsertionSort";
 	}	
 
 	
@@ -42,6 +42,17 @@ public class InsertionSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO 
+		// TODO - WIP
+
+        for (int i = 1; i < points.length; i++)
+        {
+            Point pointBeingChecked = points[i];
+            int j;
+            for(j = i - 1; j >= 0 && pointComparator.compare(pointBeingChecked,points[j]) < 0; j--)
+            {
+                points[j+1] = points[j];
+            }
+            points[j+1] = pointBeingChecked;
+        }
 	}		
 }

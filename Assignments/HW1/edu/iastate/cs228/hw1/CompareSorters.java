@@ -47,12 +47,21 @@ public class CompareSorters
 		Random randomNumberGenerator = new Random();
 
 		// WIP - Use a try catch block for all methods that throw exceptions.
-		Point[] inputPoints = generateRandomPoints(5, randomNumberGenerator);
+		Point[] inputPoints = generateRandomPoints(100, randomNumberGenerator);
 
 		for( Point p : inputPoints)
 		{
 			System.out.println(p.toString());
 		}
+
+		PointScanner ps = new PointScanner(inputPoints,Algorithm.InsertionSort);
+
+		ps.scan();
+
+		System.out.println("------");
+		System.out.println(ps.stats());
+
+		System.out.println(ps.toString());
 
 //		PointScanner[] scanners = new PointScanner[4];
 //
@@ -81,9 +90,9 @@ public class CompareSorters
 //		}
 //
 //		// Display heading and other stuff as well like --------
-//		for (PointScanner sortByScan : scanners)
+//		for (PointScanner statsByScan : scanners)
 //		{
-//			sortByScan.stats();
+//			System.out.println(statsByScan.stats());
 //		}
 
 	}
@@ -92,7 +101,7 @@ public class CompareSorters
 	/**
 	 * This method generates a given number of random points.
 	 * The coordinates of these points are pseudo-random numbers within the range 
-	 * [-50,50] � [-50,50]. Please refer to Section 3 on how such points can be generated.
+	 * [-50,50] X [-50,50]. Please refer to Section 3 on how such points can be generated.
 	 * 
 	 * Ought to be private. Made public for testing. 
 	 * 

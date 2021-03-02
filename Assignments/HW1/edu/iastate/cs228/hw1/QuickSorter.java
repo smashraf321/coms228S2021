@@ -32,7 +32,7 @@ public class QuickSorter extends AbstractSorter
 		// TODO - WIP
 
 		super(pts);
-		super.algorithm = "quicksort";
+		super.algorithm = "QuickSort";
 	}
 		
 

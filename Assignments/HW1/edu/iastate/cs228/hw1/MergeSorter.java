@@ -32,7 +32,7 @@ public class MergeSorter extends AbstractSorter
 		// TODO - WIP
 
 		super(pts);
-		super.algorithm = "mergesort";
+		super.algorithm = "MergeSort";
 	}
 
 

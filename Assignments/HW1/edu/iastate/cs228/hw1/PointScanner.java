@@ -24,8 +24,7 @@ public class PointScanner
 	
 	private Point medianCoordinatePoint;  // point whose x and y coordinates are respectively the medians of 
 	                                      // the x coordinates and y coordinates of those points in the array points[].
-	private Algorithm sortingAlgorithm;    
-	
+	private Algorithm sortingAlgorithm;
 		
 	protected long scanTime; 	       // execution time in nanoseconds. 
 	
@@ -129,6 +128,12 @@ public class PointScanner
 		aSorter.sort();
 		scanTime = System.nanoTime() - timeBeforeSorting;
 
+		System.out.println("------");
+		for( Point p : points)
+		{
+			System.out.println(p.toString());
+		}
+
 		int medianX = aSorter.getMedian().getX();
 
 		aSorter.setComparator(sortByY);
@@ -136,6 +141,12 @@ public class PointScanner
 		timeBeforeSorting = System.nanoTime();
 		aSorter.sort();
 		scanTime += System.nanoTime() - timeBeforeSorting;
+
+		System.out.println("------");
+		for( Point p : points)
+		{
+			System.out.println(p.toString());
+		}
 
 		int medianY = aSorter.getMedian().getY();
 
@@ -157,8 +168,30 @@ public class PointScanner
 	 */
 	public String stats()
 	{
-		return null; 
-		// TODO 
+		// TODO - WIP
+
+		String algorithm;
+
+		switch(sortingAlgorithm)
+		{
+			case SelectionSort:
+				algorithm = "SelectionSort";
+				break;
+			case InsertionSort:
+				algorithm = "InsertionSort";
+				break;
+			case MergeSort:
+				algorithm = "MergeSort";
+				break;
+			case QuickSort:
+				algorithm = "QuickSort";
+				break;
+			default:
+				System.err.println("Unsupported sorting technique");
+				return null;
+		}
+
+		return String.format("%-18s%-7d%-25d",algorithm,points.length,scanTime);
 	}
 	
 	
