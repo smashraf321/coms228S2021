@@ -25,7 +25,7 @@ public abstract class AbstractSorter
 	
 	protected String algorithm = null; // "selection sort", "insertion sort", "mergesort", or
 	                                   // "quicksort". Initialized by a subclass constructor.
-	// QUE What's the use of String algorithm?
+	// QUE What's the use of the String algorithm?
 		 
 	protected Comparator<Point> pointComparator = null;  
 	
@@ -120,6 +120,21 @@ public abstract class AbstractSorter
 				return p1.compareTo(p2);
 			}
 		};
+
+		// QUE Using Lambdas for Java 1.8 onwards, is it okay??
+//		pointComparator = (Point p1, Point p2) ->
+//		{
+//			if(order == 0)
+//			{
+//				Point.setXorY(true);
+//				// QUE we could even do Point.xORy = true; Why this method then?
+//			}
+//			else
+//			{
+//				Point.setXorY(false);
+//			}
+//			return p1.compareTo(p2);
+//		};
 	}
 
 
@@ -140,7 +155,13 @@ public abstract class AbstractSorter
 	{
 		return points[points.length/2]; 
 	}
-	
+	// QUE Makes sense for odd input set,
+    // what about even?
+    // Let's say array has 1, 2, 3, 4
+    // length is 4 and max index is 3
+    // is the median 2 (at index 1 (since maxindex 3 / 2 = 1))
+    // or 3 (at index 2 (since length 4 / 2 = 2))?
+    // The current logic returns 3 as its's not directly based on max index
 	
 	/**
 	 * Copies the array points[] onto the array pts[].

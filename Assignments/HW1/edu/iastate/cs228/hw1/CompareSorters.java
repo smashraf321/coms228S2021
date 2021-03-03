@@ -47,14 +47,14 @@ public class CompareSorters
 		Random randomNumberGenerator = new Random();
 
 		// WIP - Use a try catch block for all methods that throw exceptions.
-		Point[] inputPoints = generateRandomPoints(100, randomNumberGenerator);
+		Point[] inputPoints = generateRandomPoints(4, randomNumberGenerator);
 
 		for( Point p : inputPoints)
 		{
 			System.out.println(p.toString());
 		}
 
-		PointScanner ps = new PointScanner(inputPoints,Algorithm.InsertionSort);
+		PointScanner ps = new PointScanner(inputPoints,Algorithm.SelectionSort);
 
 		ps.scan();
 
