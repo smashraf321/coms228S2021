@@ -44,11 +44,12 @@ public class QuickSorter extends AbstractSorter
         int firstIndex = 0;
         int  lastIndex = points.length - 1;
         quickSortRec(firstIndex, lastIndex);
-        System.out.println("------");
-        for( Point p : points)
-        {
-            System.out.println(p.toString());
-        }
+
+//        System.out.println("------");
+//        for( Point p : points)
+//        {
+//            System.out.println(p.toString());
+//        }
 	}
 	
 	

@@ -42,6 +42,12 @@ public class MergeSorter extends AbstractSorter
 	public void sort()
 	{
         mergeSortRec(points);
+
+//        System.out.println("------");
+//        for( Point p : points)
+//        {
+//            System.out.println(p.toString());
+//        }
 	}
 
 	

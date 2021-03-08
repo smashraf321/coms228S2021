@@ -45,88 +45,133 @@ public class CompareSorters
 		// 
 		//
 
-//		Random randomNumberGenerator = new Random();
+        int trialNumber = 0;
+        int userEnteredKey = 0;
+//        boolean exceptionCaught = false;
+        Scanner userInput = new Scanner(System.in);
 
-		// WIP - Use a try catch block for all methods that throw exceptions.
-        try
+        System.out.println("---------------------------------------------------------");
+        System.out.println("Performances of Four Sorting Algorithms in Point Scanning");
+        System.out.println("---------------------------------------------------------\n");
+        System.out.println("Please select how you'd like to obtain input points for\n"
+                         + "sorting or if you want to exit the program from the\n"
+                         + "following keys:\n");
+
+        while(userEnteredKey != 3)
         {
+//            if(!exceptionCaught)
+            {
+                userEnteredKey = 0;
+                System.out.println("Keys: 1 (random integers) 2 (file input) 3 (exit)");
+                System.out.println("Trial "+(++trialNumber)+":");
+            }
+            try
+            {
+                boolean firstTimeInValidityCheckingOuterLoop = true;
 
-            System.out.println("Working Directory = " + System.getProperty("user.dir"));
+                while(userEnteredKey != 1 && userEnteredKey != 2 && userEnteredKey != 3)
+                {
+                    while(!firstTimeInValidityCheckingOuterLoop || !userInput.hasNextInt())
+                    {
+                        System.err.println("[ Please enter a valid key! ]");
+                        userInput.nextLine();
+                        firstTimeInValidityCheckingOuterLoop = true;
+                    }
 
-            PointScanner ps = new PointScanner("in.txt",Algorithm.QuickSort);
-            ps.scan();
-            System.out.println(ps.stats());
+                    userEnteredKey = userInput.nextInt();
+                    firstTimeInValidityCheckingOuterLoop = false;
+                }
+
+                PointScanner[] scanners = new PointScanner[4];
+
+                Algorithm[] sortingTechniques = Algorithm.values();
+
+                // For each input of points, do the following.
+                //
+                //     a) Initialize the array scanners[].
+                //
+                //     b) Iterate through the array scanners[], and have every scanner call the scan()
+                //        method in the PointScanner class.
+                //
+                //     c) After all four scans are done for the input, print out the statistics table from
+                //		  section 2.
+                //
+                // A sample scenario is given in Section 2 of the project description.
+
+                if(userEnteredKey == 1)
+                {
+                    Random randomNumberGenerator = new Random();
+                    System.out.println("Please enter the number of random points:");
+
+                    userInput.nextLine();
+                    while(!userInput.hasNextInt())
+                    {
+                        System.err.println("[ Please enter a valid integer ]");
+                        userInput.nextLine();
+                    }
+
+                    Point[] inputPoints = generateRandomPoints(userInput.nextInt(), randomNumberGenerator);
+
+                    for (int i = 0; i < scanners.length; i++)
+                    {
+                        scanners[i] = new PointScanner(inputPoints, sortingTechniques[i]);
+                    }
+                }
+                else if(userEnteredKey == 2)
+                {
+                    System.out.println("Please enter a file name from which you'd like to read a list of points:");
+                    String inputFileName = userInput.next();
+
+                    for (int i = 0; i < scanners.length; i++)
+                    {
+                        scanners[i] = new PointScanner(inputFileName, sortingTechniques[i]);
+                    }
+                }
+
+                if(userEnteredKey != 3)
+                {
+                    for (PointScanner sortByScan : scanners)
+                    {
+                        sortByScan.scan();
+                    }
+
+                    if(!scanners[0].stats().equals(""))
+                    {
+                        System.out.println("---------------------------------------------------------");
+                        System.out.printf("%-18s%-7s%-25s\n","algorithm","size","time (ns)");
+                        System.out.println("---------------------------------------------------------");
+                    }
+
+                    for (PointScanner statsByScan : scanners)
+                    {
+                        System.out.println(statsByScan.stats());
+                    }
+
+                    if(!scanners[0].stats().equals(""))
+                    {
+                        System.out.println("---------------------------------------------------------\n\n");
+//                        exceptionCaught = false;
+                    }
+//                    else
+//                    {
+//                        exceptionCaught = true;
+//                    }
+                }
+            }
+            catch(FileNotFoundException noFileException)
+            {
+                System.err.println("[" + noFileException.getMessage() + "]");
+                System.err.println("FYI, your application running directory is:  [" + System.getProperty("user.dir") + "]");
+                System.err.println("Please ensure your input file is present there or provide an absolute path.");
+//                exceptionCaught = true;
+            }
+            catch(InputMismatchException | IllegalArgumentException exception)
+            {
+                System.err.println(exception.getMessage());
+//                exceptionCaught = true;
+            }
         }
-
-        catch (FileNotFoundException noFileException)
-        {
-            System.err.println("no file mainn  [" + noFileException.getMessage());
-        }
-        catch (InputMismatchException inputMismatchException)
-        {
-            System.err.println("mismatch input mainn  ["+inputMismatchException.getMessage());
-        }
-
-
-
-//		Point[] inputPoints = generateRandomPoints(1001, randomNumberGenerator);
-//
-//		for( Point p : inputPoints)
-//		{
-//			System.out.println(p.toString());
-//		}
-//
-//		PointScanner ps = new PointScanner(inputPoints,Algorithm.QuickSort);
-//
-//		ps.scan();
-//
-//		System.out.println("------");
-//		System.out.println(ps.stats());
-//
-//		System.out.println(ps.toString());
-
-
-
-
-
-
-
-
-
-
-//		PointScanner[] scanners = new PointScanner[4];
-//
-//		Algorithm[] sortingTechniques = Algorithm.values();
-
-		// For each input of points, do the following. 
-		// 
-		//     a) Initialize the array scanners[].  
-		//
-		//     b) Iterate through the array scanners[], and have every scanner call the scan() 
-		//        method in the PointScanner class.  
-		//
-		//     c) After all four scans are done for the input, print out the statistics table from
-		//		  section 2.
-		//
-		// A sample scenario is given in Section 2 of the project description.
-
-//		for (int i = 0; i < scanners.length; i++)
-//		{
-//			scanners[i] = new PointScanner(inputPoints, sortingTechniques[i]);
-//		}
-//
-//		for (PointScanner sortByScan : scanners)
-//		{
-//			sortByScan.scan();
-//		}
-//
-//		// Display heading and other stuff as well like --------
-//		for (PointScanner statsByScan : scanners)
-//		{
-//			System.out.println(statsByScan.stats());
-//		}
-
-	}
+    }
 	
 	
 	/**

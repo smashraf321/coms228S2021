@@ -11,13 +11,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.66736114">
+    <splitter split-orientation="horizontal" split-proportion="0.6041667">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="AbstractSorter.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/AbstractSorter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1365">
+                <state relative-caret-position="845">
                   <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
                   <folding>
                     <element signature="e#2997#2998#0" expanded="true" />
@@ -30,8 +30,8 @@
           <file leaf-file-name="CompareSorters.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/CompareSorters.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-477">
-                  <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+                <state relative-caret-position="3146">
+                  <caret line="147" column="21" lean-forward="true" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -48,8 +48,8 @@
           <file leaf-file-name="PointScanner.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/PointScanner.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="902">
-                  <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
+                <state relative-caret-position="1719">
+                  <caret line="134" column="22" lean-forward="true" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
                   <folding>
                     <element signature="e#7801#7802#0" expanded="true" />
                     <element signature="e#7857#7858#0" expanded="true" />
@@ -77,11 +77,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="InsertionSorter.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="InsertionSorter.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/InsertionSorter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="551">
-                  <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+                <state relative-caret-position="308">
+                  <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
                 </state>
               </provider>
             </entry>
@@ -89,8 +89,8 @@
           <file leaf-file-name="QuickSorter.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/QuickSorter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2">
-                  <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+                <state relative-caret-position="144">
+                  <caret line="46" selection-start-line="46" selection-end-line="46" />
                 </state>
               </provider>
             </entry>
@@ -98,21 +98,17 @@
           <file leaf-file-name="SelectionSorter.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/SelectionSorter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-128">
-                  <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+                <state relative-caret-position="391">
+                  <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MergeSorter.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MergeSorter.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/MergeSorter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#828#829#0" expanded="true" />
-                    <element signature="e#861#862#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="836">
+                  <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -137,11 +133,11 @@
         <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/Point.java" />
         <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/AbstractSorter.java" />
         <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/PointScanner.java" />
-        <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/CompareSorters.java" />
+        <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/QuickSorter.java" />
         <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/InsertionSorter.java" />
         <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/SelectionSorter.java" />
-        <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/QuickSorter.java" />
         <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/MergeSorter.java" />
+        <option value="$PROJECT_DIR$/edu/iastate/cs228/hw1/CompareSorters.java" />
       </list>
     </option>
   </component>
@@ -264,12 +260,12 @@
       <workItem from="1615054994483" duration="969000" />
       <workItem from="1615080393690" duration="1794000" />
       <workItem from="1615087877540" duration="2838000" />
-      <workItem from="1615168139154" duration="4970000" />
+      <workItem from="1615168139154" duration="15379000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62449000" />
+    <option name="totallyTimeSpent" value="72858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="0" />
@@ -285,7 +281,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45866665" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.15066667" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -641,24 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/Algorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/AbstractSorter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1365">
-          <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-          <folding>
-            <element signature="e#2997#2998#0" expanded="true" />
-            <element signature="e#3032#3033#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-876">
@@ -672,42 +650,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/InsertionSorter.java">
+    <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/Algorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+        <state relative-caret-position="220">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/QuickSorter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+        <state relative-caret-position="144">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/SelectionSorter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-128">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="391">
+          <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/MergeSorter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+        <state relative-caret-position="836">
+          <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/AbstractSorter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
           <folding>
-            <element signature="e#828#829#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#2997#2998#0" expanded="true" />
+            <element signature="e#3032#3033#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/PointScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="47" column="86" selection-start-line="47" selection-start-column="86" selection-end-line="47" selection-end-column="86" />
+        <state relative-caret-position="1719">
+          <caret line="134" column="22" lean-forward="true" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
           <folding>
             <element signature="e#7801#7802#0" expanded="true" />
             <element signature="e#7857#7858#0" expanded="true" />
@@ -715,10 +700,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/InsertionSorter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/edu/iastate/cs228/hw1/CompareSorters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-477">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        <state relative-caret-position="3146">
+          <caret line="147" column="21" lean-forward="true" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
         </state>
       </provider>
     </entry>

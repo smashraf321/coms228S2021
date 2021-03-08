@@ -49,5 +49,11 @@ public class InsertionSorter extends AbstractSorter
             }
             points[j+1] = pointBeingChecked;
         }
+
+//		System.out.println("------");
+//		for( Point p : points)
+//		{
+//			System.out.println(p.toString());
+//		}
 	}		
 }

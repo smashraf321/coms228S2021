@@ -53,5 +53,11 @@ public class SelectionSorter extends AbstractSorter
             }
             swap(i, minPointIndex);
         }
+
+//        System.out.println("------");
+//        for( Point p : points)
+//        {
+//            System.out.println(p.toString());
+//        }
     }
 }

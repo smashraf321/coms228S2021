@@ -136,12 +136,6 @@ public class PointScanner
 	{
 		try
 		{
-            System.out.println("------");
-            for( Point p : points)
-            {
-                System.out.println(p.toString());
-            }
-
             scanTime = 0;
             long timeBeforeSorting = 0;
             final int sortByX = 0;
