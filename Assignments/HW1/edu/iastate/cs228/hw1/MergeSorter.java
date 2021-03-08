@@ -29,8 +29,6 @@ public class MergeSorter extends AbstractSorter
 	 */
 	public MergeSorter(Point[] pts) 
 	{
-		// TODO - WIP
-
 		super(pts);
 		super.algorithm = "MergeSort";
 	}
@@ -43,8 +41,6 @@ public class MergeSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO - WIP
-
         mergeSortRec(points);
 	}
 
@@ -116,5 +112,4 @@ public class MergeSorter extends AbstractSorter
             }
         }
     }
-
 }

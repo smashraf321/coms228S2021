@@ -31,8 +31,7 @@ public class CompareSorters
 	 * @param args
 	 **/
 	public static void main(String[] args) throws FileNotFoundException
-	{		
-		// TODO - WIP
+	{
 		// 
 		// Conducts multiple rounds of comparison of four sorting algorithms.  Within each round, 
 		// set up scanning as follows: 
@@ -61,12 +60,13 @@ public class CompareSorters
 
         catch (FileNotFoundException noFileException)
         {
-            System.err.println("no file mainn  ["+noFileException.getMessage());
+            System.err.println("no file mainn  [" + noFileException.getMessage());
         }
         catch (InputMismatchException inputMismatchException)
         {
             System.err.println("mismatch input mainn  ["+inputMismatchException.getMessage());
         }
+
 
 
 //		Point[] inputPoints = generateRandomPoints(1001, randomNumberGenerator);
@@ -142,10 +142,9 @@ public class CompareSorters
 	 */
 	public static Point[] generateRandomPoints(int numPts, Random rand) throws IllegalArgumentException
 	{
-		// TODO - WIP
 		if(numPts < 1)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("[ Please enter a valid number of points that is greater than 1 ]");
 		}
 
 		Point[] points = new Point[numPts];
@@ -157,5 +156,4 @@ public class CompareSorters
 
 		return points;
 	}
-	
 }

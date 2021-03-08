@@ -32,7 +32,8 @@ public class PointScanner
 	private Algorithm sortingAlgorithm;
 		
 	protected long scanTime; 	       // execution time in nanoseconds. 
-	
+
+    private boolean successfulSort;
 	/**
 	 * This constructor accepts an array of points and one of the four sorting algorithms as input. Copy 
 	 * the points into the array points[].
@@ -42,23 +43,16 @@ public class PointScanner
 	 */
 	public PointScanner(Point[] pts, Algorithm algo) throws IllegalArgumentException
 	{
-		// TODO - WIP
-
 		if (pts == null || pts.length == 0)
 		{
-			throw new IllegalArgumentException("points empty");
+			throw new IllegalArgumentException("[ Your list of input points is empty ]");
 		}
 
-		this.sortingAlgorithm = algo;
+        this.points = pts;
 
-		// QUE Is copying a reference good enough or should we perform a deep copy??
-		this.points = pts;
+        this.sortingAlgorithm = algo;
 
-//		this.points = new Point[pts.length];
-//		for(int i = 0; i < pts.length; i++)
-//		{
-//			this.points[i] = pts[i];
-//		}
+        successfulSort = false;
 	}
 
 	
@@ -71,68 +65,38 @@ public class PointScanner
 	 */
 	protected PointScanner(String inputFileName, Algorithm algo) throws FileNotFoundException, InputMismatchException
 	{
-		// TODO - WIP
-
         File inputFile = new File(inputFileName);
         Scanner inputFileReader = new Scanner(inputFile);
 
         try
         {
-
-
-//            while(inputFileReader.hasNext())
-//            {
-//
-//                if(inputFileReader.hasNextInt())
-//                {
-//                    System.out.println(inputFileReader.nextInt());
-//                }
-//                else
-//                {
-//                    inputFileReader.next();
-//                }
-//            }
-//
-//            inputFileReader = new Scanner(inputFile);
-//
-//            while(inputFileReader.hasNext())
-//            {
-//
-//                if(inputFileReader.hasNextInt())
-//                {
-//                    System.out.println(inputFileReader.nextInt());
-//                }
-//                else
-//                {
-//                    inputFileReader.next();
-//                }
-//            }
-
+            successfulSort = false;
             boolean evenNumberOfInputs = true;
             int x,y;
-            x=y=0;
+            x = y = 0;
             ArrayList<Point> inputPoints = new ArrayList<>();
+
             while(inputFileReader.hasNext())
             {
-
                 if(inputFileReader.hasNextInt())
                 {
-                    int coordinate = inputFileReader.nextInt();
-                    System.out.println(coordinate);
                     if(evenNumberOfInputs)
                     {
-                        x = coordinate;
+                        x = inputFileReader.nextInt();
                     }
                     else
                     {
-                        y = coordinate;
-                        // create new point
+                        y = inputFileReader.nextInt();
+
+                        // Create new point as we now have both x and y coordinate pair
                         Point p = new Point(x,y);
-                        System.out.println(p.toString());
+                        // Add it to our ArrayList
                         inputPoints.add(p);
                     }
-                    // toggle the even number inputs tracker flag
+
+                    // Toggle the even number inputs tracker flag
                     // Even number is every other number
+
                     evenNumberOfInputs ^= true;
 
                 }
@@ -144,28 +108,18 @@ public class PointScanner
 
             if(!evenNumberOfInputs)
             {
-                throw new InputMismatchException("Odd number of inouts");
+                throw new InputMismatchException("[ There are odd number of integers in the input file ]");
             }
 
             points = inputPoints.toArray(new Point[0]);
 
             this.sortingAlgorithm = algo;
-
-            System.out.println("~~~~~~~~~~");
-            for( Point p : points)
-		    {
-			    System.out.println(p.toString());
-		    }
-
         }
         finally
         {
-            System.out.println("finally ps");
             inputFileReader.close();
         }
-
 	}
-
 	
 	/**
 	 * Carry out two rounds of sorting using the algorithm designated by sortingAlgorithm as follows:  
@@ -180,12 +134,13 @@ public class PointScanner
 	 */
 	public void scan()
 	{
-		// TODO - WIP
-
-        // put entire funvtion bod in try catch
-
 		try
 		{
+            System.out.println("------");
+            for( Point p : points)
+            {
+                System.out.println(p.toString());
+            }
 
             scanTime = 0;
             long timeBeforeSorting = 0;
@@ -221,7 +176,7 @@ public class PointScanner
                     aSorter = new QuickSorter(points);
                     break;
                 default:
-                    System.err.println("Unsupported sorting technique");
+                    System.err.println("[ Unsupported sorting technique ]");
                     return;
             }
 
@@ -231,12 +186,6 @@ public class PointScanner
             aSorter.sort();
             scanTime = System.nanoTime() - timeBeforeSorting;
 
-            System.out.println("------");
-            for( Point p : points)
-            {
-                System.out.println(p.toString());
-            }
-
             int medianX = aSorter.getMedian().getX();
 
             aSorter.setComparator(sortByY);
@@ -245,21 +194,17 @@ public class PointScanner
             aSorter.sort();
             scanTime += System.nanoTime() - timeBeforeSorting;
 
-            System.out.println("------");
-            for( Point p : points)
-            {
-                System.out.println(p.toString());
-            }
-
             int medianY = aSorter.getMedian().getY();
 
             medianCoordinatePoint = new Point(medianX, medianY);
+
+            successfulSort = true;
         }
         catch(IllegalArgumentException invalidValues)
         {
             System.err.println(invalidValues.getMessage());
+            successfulSort = false;
         }
-
 	}
 	
 	
@@ -276,33 +221,36 @@ public class PointScanner
 	 */
 	public String stats()
 	{
-		// TODO - WIP
+	    if(successfulSort)
+        {
+            String algorithm;
 
-		String algorithm;
-
-		switch(sortingAlgorithm)
-		{
-			case SelectionSort:
-				algorithm = "SelectionSort";
-				break;
-			case InsertionSort:
-				algorithm = "InsertionSort";
-				break;
-			case MergeSort:
-				algorithm = "MergeSort";
-				break;
-			case QuickSort:
-				algorithm = "QuickSort";
-				break;
-			default:
-				System.err.println("Unsupported sorting technique");
-				return null;
-		}
-
-		return String.format("%-18s%-7d%-25d",algorithm,points.length,scanTime);
+            switch(sortingAlgorithm)
+            {
+                case SelectionSort:
+                    algorithm = "SelectionSort";
+                    break;
+                case InsertionSort:
+                    algorithm = "InsertionSort";
+                    break;
+                case MergeSort:
+                    algorithm = "MergeSort";
+                    break;
+                case QuickSort:
+                    algorithm = "QuickSort";
+                    break;
+                default:
+                    System.err.println("[ Unsupported sorting technique ]");
+                    return null;
+            }
+            return String.format("%-18s%-7d%-25d",algorithm,points.length,scanTime);
+        }
+        else
+        {
+            return "";
+        }
 	}
-	
-	
+
 	/**
 	 * Write MCP after a call to scan(),  in the format "MCP: (x, y)"   The x and y coordinates of the point are displayed on the same line with exactly one blank space 
 	 * in between. 
@@ -310,12 +258,9 @@ public class PointScanner
 	@Override
 	public String toString()
 	{
-		// TODO - WIP
-
 		return "MCP: " + medianCoordinatePoint.toString();
 	}
 
-	
 	/**
 	 *  
 	 * This method, called after scanning, writes point data into a file by outputFileName. The format 
@@ -326,8 +271,6 @@ public class PointScanner
 	 */
 	public void writeMCPToFile() throws IOException
 	{
-		// TODO - WIP
-
         FileWriter outputFile = new FileWriter("outputFileName.txt");
 
         try
@@ -338,9 +281,5 @@ public class PointScanner
         {
             outputFile.close();
         }
-	}	
-
-	
-
-		
+	}
 }

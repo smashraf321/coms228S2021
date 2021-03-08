@@ -29,8 +29,6 @@ public class QuickSorter extends AbstractSorter
 	 */
 	public QuickSorter(Point[] pts)
 	{
-		// TODO - WIP
-
 		super(pts);
 		super.algorithm = "QuickSort";
 	}
@@ -43,11 +41,14 @@ public class QuickSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO - WIP
-
         int firstIndex = 0;
         int  lastIndex = points.length - 1;
         quickSortRec(firstIndex, lastIndex);
+        System.out.println("------");
+        for( Point p : points)
+        {
+            System.out.println(p.toString());
+        }
 	}
 	
 	
@@ -58,9 +59,7 @@ public class QuickSorter extends AbstractSorter
 	 * @param last   ending index of the subarray
 	 */
 	private void quickSortRec(int first, int last)
-	{
-		// TODO - WIP
-
+    {
         if(first < last)
         {
             int correctPivotPosition = partition(first, last);
@@ -80,8 +79,6 @@ public class QuickSorter extends AbstractSorter
 	 */
 	private int partition(int first, int last)
 	{
-		// TODO - WIP
-
         int desiredPivotPositionTracker = first - 1;
 
         for(int i = first; i < last; i++)

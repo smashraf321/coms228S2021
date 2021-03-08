@@ -29,21 +29,16 @@ public class InsertionSorter extends AbstractSorter
 	 */
 	public InsertionSorter(Point[] pts) 
 	{
-		// TODO - WIP
-
 		super(pts);
 		super.algorithm = "InsertionSort";
 	}	
 
-	
 	/** 
 	 * Perform insertion sort on the array points[] of the parent class AbstractSorter.  
 	 */
 	@Override 
 	public void sort()
 	{
-		// TODO - WIP
-
         for (int i = 1; i < points.length; i++)
         {
             Point pointBeingChecked = points[i];

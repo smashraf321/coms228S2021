@@ -46,14 +46,9 @@ public class Point implements Comparable<Point>
 	 */
 	public static void setXorY(boolean xORy)
 	{
-		// TODO - WIP
-
-		// QUE Why does this method exist when xORy is public static?
-		// or why is xORy public static?
 		Point.xORy = xORy;
 	}
-	
-	
+
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -76,8 +71,6 @@ public class Point implements Comparable<Point>
 	 */
 	public int compareTo(Point q)
 	{
-		// TODO - WIP
-
 		int ret;
 
 		if ((xORy && (this.x < q.x || (this.x == q.x && this.y < q.y)))
@@ -95,17 +88,13 @@ public class Point implements Comparable<Point>
 		}
 		return ret;
 	}
-	
-	
+
 	/**
 	 * Output a point in the standard form (x, y). 
 	 */
 	@Override
     public String toString() 
 	{
-		// TODO - WIP
-
 		return "(" + x + ", " + y + ")";
-
 	}
 }
