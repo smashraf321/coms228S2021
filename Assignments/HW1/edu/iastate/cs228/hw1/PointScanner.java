@@ -6,8 +6,13 @@ package edu.iastate.cs228.hw1;
  *
  */
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 /**
@@ -41,7 +46,7 @@ public class PointScanner
 
 		if (pts == null || pts.length == 0)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("points empty");
 		}
 
 		this.sortingAlgorithm = algo;
@@ -66,7 +71,99 @@ public class PointScanner
 	 */
 	protected PointScanner(String inputFileName, Algorithm algo) throws FileNotFoundException, InputMismatchException
 	{
-		// TODO
+		// TODO - WIP
+
+        File inputFile = new File(inputFileName);
+        Scanner inputFileReader = new Scanner(inputFile);
+
+        try
+        {
+
+
+//            while(inputFileReader.hasNext())
+//            {
+//
+//                if(inputFileReader.hasNextInt())
+//                {
+//                    System.out.println(inputFileReader.nextInt());
+//                }
+//                else
+//                {
+//                    inputFileReader.next();
+//                }
+//            }
+//
+//            inputFileReader = new Scanner(inputFile);
+//
+//            while(inputFileReader.hasNext())
+//            {
+//
+//                if(inputFileReader.hasNextInt())
+//                {
+//                    System.out.println(inputFileReader.nextInt());
+//                }
+//                else
+//                {
+//                    inputFileReader.next();
+//                }
+//            }
+
+            boolean evenNumberOfInputs = true;
+            int x,y;
+            x=y=0;
+            ArrayList<Point> inputPoints = new ArrayList<>();
+            while(inputFileReader.hasNext())
+            {
+
+                if(inputFileReader.hasNextInt())
+                {
+                    int coordinate = inputFileReader.nextInt();
+                    System.out.println(coordinate);
+                    if(evenNumberOfInputs)
+                    {
+                        x = coordinate;
+                    }
+                    else
+                    {
+                        y = coordinate;
+                        // create new point
+                        Point p = new Point(x,y);
+                        System.out.println(p.toString());
+                        inputPoints.add(p);
+                    }
+                    // toggle the even number inputs tracker flag
+                    // Even number is every other number
+                    evenNumberOfInputs ^= true;
+
+                }
+                else
+                {
+                    inputFileReader.next();
+                }
+            }
+
+            if(!evenNumberOfInputs)
+            {
+                throw new InputMismatchException("Odd number of inouts");
+            }
+
+            points = inputPoints.toArray(new Point[0]);
+
+            this.sortingAlgorithm = algo;
+
+            System.out.println("~~~~~~~~~~");
+            for( Point p : points)
+		    {
+			    System.out.println(p.toString());
+		    }
+
+        }
+        finally
+        {
+            System.out.println("finally ps");
+            inputFileReader.close();
+        }
+
 	}
 
 	
@@ -84,73 +181,84 @@ public class PointScanner
 	public void scan()
 	{
 		// TODO - WIP
-		scanTime = 0;
-		long timeBeforeSorting = 0;
-		final int sortByX = 0;
-		final int sortByY = 1;
-		AbstractSorter aSorter;
 
-		// create an object to be referenced by aSorter according to sortingAlgorithm. for each of the two 
-		// rounds of sorting, have aSorter do the following: 
-		// 
-		//     a) call setComparator() with an argument 0 or 1. 
-		//
-		//     b) call sort(). 		
-		// 
-		//     c) use a new Point object to store the coordinates of the Median Coordinate Point
-		//
-		//     d) set the medianCoordinatePoint reference to the object with the correct coordinates.
-		//
-		//     e) sum up the times spent on the two sorting rounds and set the instance variable scanTime. 
+        // put entire funvtion bod in try catch
 
-		switch(sortingAlgorithm)
+		try
 		{
-			case SelectionSort:
-				aSorter = new SelectionSorter(points);
-				break;
-			case InsertionSort:
-				aSorter = new InsertionSorter(points);
-				break;
-			case MergeSort:
-				aSorter = new MergeSorter(points);
-				break;
-			case QuickSort:
-				aSorter = new QuickSorter(points);
-				break;
-			default:
-				System.err.println("Unsupported sorting technique");
-				return;
-		}
 
-		aSorter.setComparator(sortByX);
+            scanTime = 0;
+            long timeBeforeSorting = 0;
+            final int sortByX = 0;
+            final int sortByY = 1;
+            AbstractSorter aSorter;
 
-		timeBeforeSorting = System.nanoTime();
-		aSorter.sort();
-		scanTime = System.nanoTime() - timeBeforeSorting;
+            // create an object to be referenced by aSorter according to sortingAlgorithm. for each of the two
+            // rounds of sorting, have aSorter do the following:
+            //
+            //     a) call setComparator() with an argument 0 or 1.
+            //
+            //     b) call sort().
+            //
+            //     c) use a new Point object to store the coordinates of the Median Coordinate Point
+            //
+            //     d) set the medianCoordinatePoint reference to the object with the correct coordinates.
+            //
+            //     e) sum up the times spent on the two sorting rounds and set the instance variable scanTime.
 
-		System.out.println("------");
-		for( Point p : points)
-		{
-			System.out.println(p.toString());
-		}
+            switch(sortingAlgorithm)
+            {
+                case SelectionSort:
+                    aSorter = new SelectionSorter(points);
+                    break;
+                case InsertionSort:
+                    aSorter = new InsertionSorter(points);
+                    break;
+                case MergeSort:
+                    aSorter = new MergeSorter(points);
+                    break;
+                case QuickSort:
+                    aSorter = new QuickSorter(points);
+                    break;
+                default:
+                    System.err.println("Unsupported sorting technique");
+                    return;
+            }
 
-		int medianX = aSorter.getMedian().getX();
+            aSorter.setComparator(sortByX);
 
-		aSorter.setComparator(sortByY);
+            timeBeforeSorting = System.nanoTime();
+            aSorter.sort();
+            scanTime = System.nanoTime() - timeBeforeSorting;
 
-		timeBeforeSorting = System.nanoTime();
-		aSorter.sort();
-		scanTime += System.nanoTime() - timeBeforeSorting;
+            System.out.println("------");
+            for( Point p : points)
+            {
+                System.out.println(p.toString());
+            }
 
-		System.out.println("------");
-		for( Point p : points)
-		{
-			System.out.println(p.toString());
-		}
+            int medianX = aSorter.getMedian().getX();
 
-		int medianY = aSorter.getMedian().getY();
+            aSorter.setComparator(sortByY);
 
-		medianCoordinatePoint = new Point(medianX, medianY);
+            timeBeforeSorting = System.nanoTime();
+            aSorter.sort();
+            scanTime += System.nanoTime() - timeBeforeSorting;
+
+            System.out.println("------");
+            for( Point p : points)
+            {
+                System.out.println(p.toString());
+            }
+
+            int medianY = aSorter.getMedian().getY();
+
+            medianCoordinatePoint = new Point(medianX, medianY);
+        }
+        catch(IllegalArgumentException invalidValues)
+        {
+            System.err.println(invalidValues.getMessage());
+        }
 
 	}
 	
@@ -216,9 +324,20 @@ public class PointScanner
 	 * 
 	 * @throws FileNotFoundException
 	 */
-	public void writeMCPToFile() throws FileNotFoundException
+	public void writeMCPToFile() throws IOException
 	{
-		// TODO 
+		// TODO - WIP
+
+        FileWriter outputFile = new FileWriter("outputFileName.txt");
+
+        try
+        {
+            outputFile.write(toString());
+        }
+        finally
+        {
+            outputFile.close();
+        }
 	}	
 
 	

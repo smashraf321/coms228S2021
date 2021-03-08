@@ -15,7 +15,9 @@ package edu.iastate.cs228.hw1;
  */
 
 import java.io.FileNotFoundException;
-import java.util.Scanner; 
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import java.util.Random; 
 
 
@@ -44,24 +46,53 @@ public class CompareSorters
 		// 
 		//
 
-		Random randomNumberGenerator = new Random();
+//		Random randomNumberGenerator = new Random();
 
 		// WIP - Use a try catch block for all methods that throw exceptions.
-		Point[] inputPoints = generateRandomPoints(4, randomNumberGenerator);
+        try
+        {
 
-		for( Point p : inputPoints)
-		{
-			System.out.println(p.toString());
-		}
+            System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
-		PointScanner ps = new PointScanner(inputPoints,Algorithm.SelectionSort);
+            PointScanner ps = new PointScanner("in.txt",Algorithm.QuickSort);
+            ps.scan();
+            System.out.println(ps.stats());
+        }
 
-		ps.scan();
+        catch (FileNotFoundException noFileException)
+        {
+            System.err.println("no file mainn  ["+noFileException.getMessage());
+        }
+        catch (InputMismatchException inputMismatchException)
+        {
+            System.err.println("mismatch input mainn  ["+inputMismatchException.getMessage());
+        }
 
-		System.out.println("------");
-		System.out.println(ps.stats());
 
-		System.out.println(ps.toString());
+//		Point[] inputPoints = generateRandomPoints(1001, randomNumberGenerator);
+//
+//		for( Point p : inputPoints)
+//		{
+//			System.out.println(p.toString());
+//		}
+//
+//		PointScanner ps = new PointScanner(inputPoints,Algorithm.QuickSort);
+//
+//		ps.scan();
+//
+//		System.out.println("------");
+//		System.out.println(ps.stats());
+//
+//		System.out.println(ps.toString());
+
+
+
+
+
+
+
+
+
 
 //		PointScanner[] scanners = new PointScanner[4];
 //

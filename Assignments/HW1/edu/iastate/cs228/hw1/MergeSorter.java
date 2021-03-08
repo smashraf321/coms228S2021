@@ -43,7 +43,9 @@ public class MergeSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO 
+		// TODO - WIP
+
+        mergeSortRec(points);
 	}
 
 	
@@ -56,10 +58,63 @@ public class MergeSorter extends AbstractSorter
 	 */
 	private void mergeSortRec(Point[] pts)
 	{
-		
+	    if(pts.length > 1)
+        {
+            Point[] p1 = new Point[pts.length / 2];
+            Point[] p2 = new Point[pts.length - (pts.length / 2)];
+
+            for(int i = 0; i < pts.length; i++)
+            {
+                if(i < pts.length / 2)
+                {
+                    p1[i] = pts[i];
+                }
+                else
+                {
+                    p2[i - pts.length / 2] = pts[i];
+                }
+            }
+
+            mergeSortRec(p1);
+            mergeSortRec(p2);
+
+            merge(pts, p1, p2);
+        }
 	}
 
-	
 	// Other private methods in case you need ...
+
+    private void merge(Point[] pts, Point[] p1, Point[] p2)
+    {
+        int indexp1, indexp2;
+        indexp1 = indexp2 = 0;
+
+        while((indexp1 + indexp2) < pts.length)
+        {
+            if(indexp1 < p1.length && indexp2 < p2.length)
+            {
+                if(pointComparator.compare(p1[indexp1], p2[indexp2]) < 0)
+                {
+                    pts[indexp1 + indexp2] = p1[indexp1];
+                    indexp1++;
+                }
+                else
+                {
+                    pts[indexp1 + indexp2] = p2[indexp2];
+                    indexp2++;
+                }
+            }
+            else if(indexp1 < p1.length)
+            {
+                pts[indexp1 + indexp2] = p1[indexp1];
+                indexp1++;
+            }
+            else if(indexp2 < p2.length)
+            {
+                pts[indexp1 + indexp2] = p2[indexp2];
+                indexp2++;
+            }
+        }
+    }
 
 }

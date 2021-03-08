@@ -52,7 +52,7 @@ public abstract class AbstractSorter
 
 		if (pts == null || pts.length == 0)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("pts are empty");
 		}
 
 		// QUE Is copying a reference good enough or should we perform a deep copy??
@@ -89,7 +89,7 @@ public abstract class AbstractSorter
 
 		if(order < 0 || order > 1)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("order invalid");
 		}
 
 

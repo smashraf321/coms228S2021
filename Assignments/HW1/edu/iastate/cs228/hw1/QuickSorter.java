@@ -43,7 +43,11 @@ public class QuickSorter extends AbstractSorter
 	@Override 
 	public void sort()
 	{
-		// TODO 
+		// TODO - WIP
+
+        int firstIndex = 0;
+        int  lastIndex = points.length - 1;
+        quickSortRec(firstIndex, lastIndex);
 	}
 	
 	
@@ -55,7 +59,15 @@ public class QuickSorter extends AbstractSorter
 	 */
 	private void quickSortRec(int first, int last)
 	{
-		// TODO
+		// TODO - WIP
+
+        if(first < last)
+        {
+            int correctPivotPosition = partition(first, last);
+
+            quickSortRec(first, correctPivotPosition - 1);
+            quickSortRec(correctPivotPosition + 1, last);
+        }
 	}
 	
 	
@@ -68,12 +80,25 @@ public class QuickSorter extends AbstractSorter
 	 */
 	private int partition(int first, int last)
 	{
-		// TODO 
-		return 0; 
+		// TODO - WIP
+
+        int desiredPivotPositionTracker = first - 1;
+
+        for(int i = first; i < last; i++)
+        {
+            // Assume last index element is the pivot -> points[last]
+            if(pointComparator.compare(points[i], points[last]) < 0)
+            {
+                desiredPivotPositionTracker++;
+                swap(desiredPivotPositionTracker,i);
+            }
+        }
+
+        // Place the pivot element in its rightful place
+        swap(++desiredPivotPositionTracker, last);
+
+		return desiredPivotPositionTracker;
 	}	
-		
 
-
-	
 	// Other private methods in case you need ...
 }
