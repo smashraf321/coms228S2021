@@ -45,7 +45,7 @@ public class PointScanner
 	{
 		if (pts == null || pts.length == 0)
 		{
-			throw new IllegalArgumentException("[ Your list of input points is empty ]");
+			throw new IllegalArgumentException("[ ERR: Your list of input points is empty ]");
 		}
 
         this.points = pts;
@@ -108,7 +108,7 @@ public class PointScanner
 
             if(!evenNumberOfInputs)
             {
-                throw new InputMismatchException("[ There are odd number of integers in the input file ]");
+                throw new InputMismatchException("[ ERR: There are odd number of integers in the input file ]");
             }
 
             points = inputPoints.toArray(new Point[0]);
@@ -170,7 +170,7 @@ public class PointScanner
                     aSorter = new QuickSorter(points);
                     break;
                 default:
-                    System.err.println("[ Unsupported sorting technique ]");
+                    System.err.println("[ ERR: Unsupported sorting technique ]");
                     return;
             }
 
@@ -234,7 +234,7 @@ public class PointScanner
                     algorithm = "QuickSort";
                     break;
                 default:
-                    System.err.println("[ Unsupported sorting technique ]");
+                    System.err.println("[ ERR: Unsupported sorting technique ]");
                     return null;
             }
             return String.format("%-18s%-7d%-25d",algorithm,points.length,scanTime);

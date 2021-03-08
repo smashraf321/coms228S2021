@@ -73,7 +73,7 @@ public class CompareSorters
                 {
                     while(!firstTimeInValidityCheckingOuterLoop || !userInput.hasNextInt())
                     {
-                        System.err.println("[ Please enter a valid key! ]");
+                        System.err.println("[ ERR: Please enter a valid key! ]");
                         userInput.nextLine();
                         firstTimeInValidityCheckingOuterLoop = true;
                     }
@@ -106,7 +106,7 @@ public class CompareSorters
                     userInput.nextLine();
                     while(!userInput.hasNextInt())
                     {
-                        System.err.println("[ Please enter a valid integer ]");
+                        System.err.println("[ ERR: Please enter a valid integer ]");
                         userInput.nextLine();
                     }
 
@@ -160,9 +160,9 @@ public class CompareSorters
             }
             catch(FileNotFoundException noFileException)
             {
-                System.err.println("[" + noFileException.getMessage() + "]");
-                System.err.println("FYI, your application running directory is:  [" + System.getProperty("user.dir") + "]");
-                System.err.println("Please ensure your input file is present there or provide an absolute path.");
+                System.err.println("[ ERR: " + noFileException.getMessage() + "]");
+                System.err.println("[ ERR: FYI, your application running directory is:  [" + System.getProperty("user.dir") + "] ]");
+                System.err.println("[ ERR: Please ensure your input file is present there or provide an absolute path. ]");
 //                exceptionCaught = true;
             }
             catch(InputMismatchException | IllegalArgumentException exception)
@@ -171,6 +171,7 @@ public class CompareSorters
 //                exceptionCaught = true;
             }
         }
+        userInput.close();
     }
 	
 	
@@ -189,7 +190,7 @@ public class CompareSorters
 	{
 		if(numPts < 1)
 		{
-			throw new IllegalArgumentException("[ Please enter a valid number of points that is greater than 1 ]");
+			throw new IllegalArgumentException("[ ERR: Please enter a valid number of points that is greater than 1 ]");
 		}
 
 		Point[] points = new Point[numPts];

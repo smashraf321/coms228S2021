@@ -45,7 +45,7 @@ public abstract class AbstractSorter
 	{
 		if (pts == null || pts.length == 0)
 		{
-			throw new IllegalArgumentException("[ Your list of input points is empty ]");
+			throw new IllegalArgumentException("[ ERR: Your list of input points is empty ]");
 		}
 
 		this.points = pts.clone();
@@ -71,7 +71,7 @@ public abstract class AbstractSorter
 	{
 		if(order < 0 || order > 1)
 		{
-			throw new IllegalArgumentException("[ Please enter a comparator value of either 0 or 1 ]");
+			throw new IllegalArgumentException("[ ERR: Please enter a comparator value of either 0 or 1 ]");
 		}
 
 		pointComparator = new Comparator<Point>() {
